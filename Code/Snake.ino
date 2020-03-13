@@ -1,49 +1,29 @@
 #include <joystick.h>
-
-
-
-
 #include <UTFT.h>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 UTFT myGLCD(ITDB32S,38,39,40,41);
 joystick joystick(56,54,55);
 
 int snakeDir=1;
+
 struct gameItem{
   int X;
   int Y;
 };
+
 String horizontal;
 String vertical;
+
 int gameItemSize=4;
 unsigned int snakeSize=5;
 
 gameItem snake[100];
-
 gameItem snakeFood;
-
-
-
-
 
 void draw(){
   drawSnake();
   drawFood();
-
-
 }
 
 void drawSnake(){
@@ -53,25 +33,16 @@ void drawSnake(){
 }
 
 void drawFood(){
-
-
     snakeFood.X=random(2,320);
     snakeFood.Y=random(2,240);
     myGLCD.fillCircle(snakeFood.X,snakeFood.Y,4);
  
     }
     
-
-
-
-
-
 void handleColisions(){
   if(snake[0].X==snakeFood.X && snake[0].Y == snakeFood.Y) {
     snakeSize++;
-    drawFood();
- 
-    
+    drawFood();    
   }
 else {
     for (int i = 1; i < snakeSize; i++) {
@@ -90,12 +61,7 @@ else {
   }
 }
 
-
-
 void handleInput(){
-
- 
-
   if(joystick.horizontalDirection()=="left" && snakeDir !=1){
     snakeDir=0;
   }
@@ -149,22 +115,11 @@ void playGame() {
   
   draw();
   delay(50);
-    
-      
-
-
 }
-
-
-
-
-
 
 void setup() {
   
 myGLCD.InitLCD();
-
-
 }
 
 void loop() {
