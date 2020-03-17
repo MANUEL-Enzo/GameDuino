@@ -1,0 +1,2 @@
+Le fichier Gameduino.ino est le fichier à téléverser dans la carte Arduino Due avec le logiciel Arduino.
+Le dossier GameduinoRessources est a placé dans le dossier des librairies du logiciel Arduino.
